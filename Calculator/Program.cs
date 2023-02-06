@@ -8,55 +8,62 @@
             double operand2;
             double result;
             byte continueCalc = 1;
-            
+
             switch (continueCalc)
-                { 
+            {
                 case 1:
                     Console.WriteLine("Выберите действие:\n1 - Сложение\n2 - Вычетание\n3 - Умножение\n4 - Деление\n5 - Процент от числа\n6 - Квадратный корень");
                     byte action = byte.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Введите число1:");
-                    operand1 = Double.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Введите число2:");
-                    operand2 = Double.Parse(Console.ReadLine());
-
-                    switch (action)
+                    if (action != 6)
                     {
-                        case 1:
-                            result = operand1 + operand2;
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break;
+                        Console.WriteLine("Введите число1:");
+                        operand1 = Double.Parse(Console.ReadLine());
 
-                        case 2:
-                            result = operand1 - operand2;
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break;
+                        Console.WriteLine("Введите число2:");
+                        operand2 = Double.Parse(Console.ReadLine());
 
-                        case 3:
-                            result = operand1 * operand2;
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break;
+                        switch (action)
+                        {
+                            case 1:
+                                result = operand1 + operand2;
+                                Console.WriteLine("Результат:" + result.ToString());
+                                break;
 
-                        case 4:
-                            result = operand1 / operand2;
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break; 
+                            case 2:
+                                result = operand1 - operand2;
+                                Console.WriteLine("Результат:" + result.ToString());
+                                break;
 
-                        case 5:
+                            case 3:
+                                result = operand1 * operand2;
+                                Console.WriteLine("Результат:" + result.ToString());
+                                break;
 
-                            result = (operand1 / 100) * operand2;
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break; 
+                            case 4:
+                                result = operand1 / operand2;
+                                Console.WriteLine("Результат:" + result.ToString());
+                                break;
 
-                        case 6:
-                            result = Math.Sqrt(operand1);
-                            Console.WriteLine("Результат:" + result.ToString());
-                            result = Math.Sqrt(operand2);
-                            Console.WriteLine("Результат:" + result.ToString());
-                            break;
-                        
+                            case 5:
+
+                                result = (operand1 / 100) * operand2;
+                                Console.WriteLine("Результат:" + result.ToString());
+                                break;
+                        }
                     }
+
+
+
+                    else
+                    {
+                        Console.WriteLine("Введите число:");
+                        operand1 = Double.Parse(Console.ReadLine());
+
+                        result = Math.Sqrt(operand1);
+                        Console.WriteLine("Результат:" + result.ToString());
+                    }
+                    
+
 
                     Console.WriteLine("Продолжить вычисления?\n1 - Да, продолжать\n0 - Нет, закончить");
                     continueCalc = byte.Parse(Console.ReadLine());
@@ -67,8 +74,8 @@
                     else
                         Console.WriteLine("Вычисления закончены");
                     break;
-                                                                           
             }
+                                                                           
         }
     }
 }
